@@ -1,5 +1,11 @@
-<h1>howdy!</h1>
-<p>you guys wanna see some tweets?</p>
 <ul>
-	<li>A tweet!</li>
+	<% @tweets.each do |tweet| %>
+		<li class="tweet">
+			<div class="tweet__user">
+				<img src="<%= tweet['user']['profile_image_url'] %>" />
+				<p><%= tweet['user']['name'] %></p>
+			</div>
+			<%= tweet["text"] %>
+		</li>
+	<% end %>
 </ul>
