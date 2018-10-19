@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background: #F7F6F2;
+  font-family: "GT-Walsheim-Pro-Regular", sans-serif;
+}
+
+.tweet {
+  background: #2e3359;
+  margin-bottom: 1rem;
+  list-style: none;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  border: 0.0625rem solid #2e3359;
+  color: #ffffff;
+}
+
+.tweet__user {
+  display: flex;
+  color: #bd802d;
+}
+.tweet__user-avatar {
+  margin-right: 0.33rem;
+}
+
+.tweet__body {
+  padding: 0 1rem
+}

@@ -2,10 +2,10 @@
 	<% @tweets.each do |tweet| %>
 		<li class="tweet">
 			<div class="tweet__user">
-				<img src="<%= tweet['user']['profile_image_url'] %>" />
-				<p><%= tweet['user']['name'] %></p>
+				<img class="tweet__user-avatar" src="<%= tweet['user']['profile_image_url'] %>" />
+				<p class="tweet__user-name"><%= tweet['user']['name'] %></p>
 			</div>
-			<%= tweet["text"] %>
+			<p class="tweet__body"><%= tweet["text"] %></p>
 		</li>
 	<% end %>
 </ul>
