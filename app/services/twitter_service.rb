@@ -3,12 +3,17 @@ require "base64"
 
 class TwitterService
   def initialize(config)
-    # see https://developer.twitter.com/en/docs/basics/authentication/overview/application-only.html
-    key_and_secret = "#{CGI::escape(config[:key])}:#{CGI::escape(config[:secret])}"
+    # URL encode the consumer key and the consumer secret
+    consumer_key = CGI::escape(config[:key])
+    consumer_secret = CGI::escape(config[:secret])
+    # Concatenate the encoded key, a colon, and the encoded secret
+    key_and_secret = "#{consumer_key}:#{consumer_secret}"
 
     # auth_response will be {"token_type":"bearer","access_token":"TOKEN"}
     auth_response = HTTParty.post('https://api.twitter.com/oauth2/token', {
       :headers => {
+        # Twitter requires that the key_and_secret be base64 encoded.
+        # Using 'strict_encode' because 'encode' adds line-feeds
         'Authorization' => "Basic #{Base64.strict_encode64(key_and_secret)}",
         'Content-Type' => 'application/x-www-form-urlencoded;charset=UTF-8'
       },
