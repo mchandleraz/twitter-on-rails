@@ -19,6 +19,10 @@ body {
   font-family: "GT-Walsheim-Pro-Regular", sans-serif;
 }
 
+.tweet-list {
+	padding: 0;
+}
+
 .tweet {
   background: #2e3359;
   margin-bottom: 1rem;
